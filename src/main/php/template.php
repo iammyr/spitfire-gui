@@ -31,12 +31,11 @@ Data</small></a></h1>
 </div>
 <div class="clr"></div>
 <div class="htext">
-<h2>Network Heterogeneities</h2>
-<p>transparent to the user</p>
 <h2>Linked Data for Sensors</h2>
 <p>Semantically annotate your sensor data,
 inference over it  
 and link with the Web of Data.</p>
+<h2>No Network Heterogeneity</h2>
 </div>
 <div class="clr"></div>
 <div class = "menu_nav">
