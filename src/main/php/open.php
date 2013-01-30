@@ -412,7 +412,7 @@ $count++;
 		<option value="JSON"
 		<?php if (isset($_POST['serialization']) && strcasecmp($_POST['serialization'], 'JSON') == 0) echo 'selected="selected"';  ?>>RDF/JSON</option>
 		<option value="XML"
-		<?php if (isset($_POST['serialization']) && strcasecmp($_POST['serialization'], 'XML') == 0) echo 'selected="selected"';  ?>>RDF/XML</option>
+		<?php if (isset($_POST["serialization"]) && strcasecmp($_POST["serialization"], "XML") == 0) echo "selected=\"selected\"";  ?>>RDF/XML</option>
 		<option value="NTRIPLES"
 		<?php if (isset($_POST['serialization']) && strcasecmp($_POST['serialization'], 'NTRIPLES') == 0) echo 'selected="selected"';  ?>>N-Triples</option>
 		<option value="TURTLE"
@@ -450,13 +450,26 @@ $ld4s_curr_ind = 0;
 			}
 			if(!empty($url)){
 				//create the json object to submit in the call
+				if (isset($reading_value)){
+					$data['values'] = $reading_value;
+				}
+				if (isset($reading_value)){
+					$data['values'] = $reading_value;
+				}
+				if (isset($start_time)){
+					$data['start_range'] = $start_time;
+				}
+				if (isset($end_time)){
+					$data['end_range'] = $end_time;
+				}
+				$json = json_encode($data);
 				if(function_exists("curl_init"))
 				{
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 					curl_setopt($ch, CURLOPT_POST, 1);
-					curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+					curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
 					curl_setopt($ch, CURLOPT_HTTPHEADER, 
 					array("Content-Type: application/json","Content-length: ".strlen($data)));
 					$ret_data = curl_exec($ch);

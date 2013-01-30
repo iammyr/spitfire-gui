@@ -14,7 +14,7 @@ function printHeader($title, $main_folder = ''){
 <script type="text/javascript" src="<?php echo $main_folder; ?>../../../js/arial.js"></script>
 <script type="text/javascript" src="<?php echo $main_folder; ?>../../../js/cuf_run.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-</head>
+
 <?php 
 
 } 
