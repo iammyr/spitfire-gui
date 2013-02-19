@@ -6,15 +6,15 @@ function printHeader($title, $main_folder = ''){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><?php echo $title; ?></title>
-<link rel="shortcut icon" href="../../../images/favicon.ico" />
+<link rel="shortcut icon" href="../../../../images/favicon.ico" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link href="<?php echo $main_folder; ?>style.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $main_folder; ?>styles-treemenu.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<?php echo $main_folder; ?>../../../js/cufon-yui.js"></script>
-<script type="text/javascript" src="<?php echo $main_folder; ?>../../../js/arial.js"></script>
-<script type="text/javascript" src="<?php echo $main_folder; ?>../../../js/cuf_run.js"></script>
+<!-- <script type="text/javascript" src="<?php echo $main_folder; ?>../../js/cufon-yui.js"></script>
+<script type="text/javascript" src="<?php echo $main_folder; ?>../../js/arial.js"></script>
+<script type="text/javascript" src="<?php echo $main_folder; ?>../../js/cuf_run.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-
+-->
 <?php 
 
 } 

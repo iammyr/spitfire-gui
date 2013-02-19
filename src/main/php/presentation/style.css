@@ -12,7 +12,7 @@ div#conditions_set{ margin-left: 40px; }
 html, .main {
 	padding:0;
 	margin:0;
-	background:#f5f1e6 url(../../../images/main_bg.gif) repeat-y center center;
+	background:#f5f1e6 url(../../../../images/main_bg.gif) repeat-y center center;
 }
 .clr {
 	clear:both;
@@ -92,7 +92,7 @@ display: none;
 	margin:0;
 	padding:24px 520px 24px 60px;
 	height:194px;
-	background:url(../../../images/hbg_img1.jpg) no-repeat center center;
+	background:url(../../../../images/hbg_img1.jpg) no-repeat center center;
 }
 .header .htext h2 {
 	color:#fff;
@@ -113,7 +113,7 @@ display: none;
 	margin:0;
 	padding:0 24px;
 	height:65px;
-	background:url(../../../images/menu.gif) repeat-x center top;
+	background:url(../../../../images/menu.gif) repeat-x center top;
 }
 .menu_nav ul {
 	list-style:none;
@@ -122,7 +122,7 @@ display: none;
 	margin:0;
 	padding:10px 2px 0 0;
 	float:left;
-	background:url(../../../images/menu_sep.gif) no-repeat right center;
+	background:url(../../../../images/menu_sep.gif) no-repeat right center;
 }
 .menu_nav ul li a {
 	display:block;
@@ -134,7 +134,7 @@ display: none;
 }
 .menu_nav ul li.active a, .menu_nav ul li a:hover {
 	color:#fff;
-	background:#f00 url(../../../images/menu_a.gif) repeat-x center;
+	background:#f00 url(../../../../images/menu_a.gif) repeat-x center;
 }
  
 /* Structure
@@ -398,7 +398,7 @@ ol li .send {
 	margin:6px 0;
 	padding:0;
 	float:left;
-	background:#fff url(../../../images/search.gif) no-repeat top left;
+	background:#fff url(../../../../images/search.gif) no-repeat top left;
 }
 #formsearch input.editbox_search {
 	margin:0;
