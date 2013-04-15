@@ -53,14 +53,14 @@ function printSensorReadingSection(){
 <?php }
 
 function printSerializationOptionsSection(){$sid=constant('base-uri');echo $sid.' - '.$_POST[constant('base-uri')];
-?>	<br /> Serialize as <select name="<?php echo constant('serialization');?>">
-						<option value="JSON"
+?>	<br /> Serialize as <select name="<?php echo constant('serialization'); ?>">
+						<option value="<?php echo constant('json'); ?>"
 						<?php if (isset($_POST[constant('serialization')]) && strcasecmp($_POST[constant('serialization')], "JSON") == 0){echo "selected=\"selected\"";}?>>RDF/JSON</option>
-						<option value="XML"
+						<option value="<?php echo constant('xml'); ?>"
 						<?php if (isset($_POST[constant('serialization')]) && strcasecmp($_POST[constant('serialization')], "XML") == 0) echo "selected=\"selected\"";  ?>>RDF/XML</option>
-						<option value="NTRIPLES"
+						<option value="<?php echo constant('ntriple'); ?>"
 						<?php if (isset($_POST[constant('serialization')]) && strcasecmp($_POST[constant('serialization')], "NTRIPLES") == 0) echo "selected=\"selected\"";  ?>>N-Triples</option>
-						<option value="TURTLE"
+						<option value="<?php echo constant('turtle'); ?>"
 						<?php if (isset($_POST[constant('serialization')]) && strcasecmp($_POST[constant('serialization')], "TURTLE") == 0) echo "selected=\"selected\"";  ?>>Turtle</option>
 						</select> <br />
 						
@@ -103,8 +103,8 @@ LD4Sensor instance URI:
 
 
 <p>
-	Generate a RDF representation which describes your data.<br /> Interact
-	with the RDF4Sensors application either by using our <a
+	Generate an RDF description of your data <br /> using
+	LD4Sensors either through our <a
 		href="apiDocumentation.php">RESTful API</a> or by filling the form
 	below.<br />
 
@@ -132,7 +132,6 @@ if(isset($_POST['generate'])) {
 	$response = "";
 	$serialization = "";
 	// 1) validate the user's input
-	echo $_POST[constant('start-time')];
 	if (!FormOutputParser::validateDateTime($_POST[constant('start-time')]) || 
 !FormOutputParser::validateDateTime($_POST[constant('end-time')])){
 		echo 'Error: invalid date-time entered. The correct format is: YYYY-MM-DDThh:mm:ssTZD where TZD = Time Zone Designator =
@@ -147,18 +146,27 @@ if(isset($_POST['generate'])) {
 	if (!FormOutputParser::validateHttpUri($_POST[constant('ld4s-instance')])){
 		echo 'Error:invalid URI entered for LD4S.';
 	}
-	if (!FormOutputParser::validateReadingValues(($_POST[constant('reading-value')]))){
+	$values = FormOutputParser::validateReadingValues(($_POST[constant('reading-value')]));
+	if (!$values){
 		echo 'Error:invalid Sensor Reading Values entered.';
 	}
 	// 2) submit all the provided data to obtain a response by the API
 	$response = FormOutputParser::submitRequest($_POST[constant('ld4s-instance')], $_POST[constant('store')], $_POST[constant('serialization')],
 			$_POST[constant('base-uri')], $_POST[constant('sensor-id')], $_POST[constant('start-time')], $_POST[constant('end-time')],
-			$_POST[constant('reading-value')]);
-echo "in generate";
-}
-if ($response){
-	echo "<hr /><strong>Generated representation:</strong><br />";
-	echo getPrintableCode($response);
+			$values);
+	if ($response){
+		echo "<hr /><strong>Generated representation:</strong><br />";
+		$count = count($response);
+		for($i = 0; $i < $count; $i++){
+    		if($array[$i][0] == ' '){
+        		if($i > 0){
+            	 	$array[$i-1] .= $array[$i];
+//              		unset($array[$i]);
+        		}
+    		}
+		}
+		echo getPrintableCode($response);
+	}
 }
 ?>
 
